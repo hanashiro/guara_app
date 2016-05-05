@@ -1,14 +1,36 @@
+/*
+
+verm - vereador
+amar - apoiadores
+
+nome
+enderec
+
+*/
+
+
 var Ctrl = {
 	newPerson: function(){
 		var name = prompt('Nova Pessoa\nInsira um Nome:');
-		var cpf  = prompt('Nova Pessoa\nInsira um CPF:' );
+		var address  = prompt('Nova Pessoa\nInsira um Endereço:' );
+		var color = '';
+		do{
+			color = prompt('Nova Pessoa\nInsira uma cor\na - amarelo\nv - vermelho' );
+			color = color[0];
+		}while(color !== 'v' && color !== 'a');
+
 		var id   = (new Date()).getTime();
 
 		var lat = Plugins.Map.list[0].center.lat();
 		var lng = Plugins.Map.list[0].center.lng();
 
-		var icon = 'http://maps.google.com/intl/en_us/mapfiles/ms/micons/man.png';
-		var infoHtml = Plugins.Map.Marker.Templates.person({name: name, cpf:cpf, id: id});
+		var icon = '';//'http://maps.google.com/intl/en_us/mapfiles/ms/micons/man.png';
+		if(color === 'v'){
+			icon = './man-red.png';
+		}else{
+			icon = './man-yellow.png';
+		}
+		var infoHtml = Plugins.Map.Marker.Templates.person({name: name, address:address, id: id});
 
 		Plugins.Map.Marker.add({lat: lat, lng: lng, id: id}, infoHtml, icon);
 	},
@@ -119,7 +141,7 @@ var Plugins = {
 					var html = '';
 					html +=	'<div>' +
 								'<b>' + info.name + '</b> <br>' +
-								'<b>CPF: </b><span>' + info.cpf + '</span>' +
+								'<b>Endereço: </b><span>' + info.address + '</span>' +
 								'<button onclick="Ctrl.removePerson('+info.id+')" style="display: block;margin-top: 20px;" >Remover</button>' +
 						    '</div>';
  
