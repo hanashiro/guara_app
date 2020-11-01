@@ -9,69 +9,28 @@
     	}
 
     	.btn-new-person{
-    		position: fixed;
-    		right: 10px;
-    		top: 10px;
-    		z-index: 30;
-    		background: #ACC388;
-    		font-size: 16px;
-    		color: white;
+			position: fixed;
+			right: 10px;
+			top: 10px;
+			z-index: 30;
+			background: #ACC388;
+			font-size: 30px;
+			color: white;
+			padding: 2px 10px;
+			font-weight: bold;
+			cursor: pointer;
     	}
-
+		.btn-new-person:hover{
+			background:#5e694c;
+		}
     </style>
   </head>
   <body>
-  	<button class="btn-new-person" onclick="Ctrl.newPerson()" >+ Nova Pessoa</button>
+	<button class="btn-new-person" onclick="Ctrl.newPerson()" >+</button>
+	  
     <div id="map"></div>
 
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt6Ub7iDYDavmJ_nrJFQVGsDnlxeTUyRk" ></script>
     <script src="scripts.js" ></script>
-
-    <script>
-    
-      function initMap() {
-      	Plugins.Map.start('map', Plugins.Map.initialCoord);
-
-      	Plugins.Map.Marker.add(Plugins.Map.initialCoord, 
-      		'<div style="text-align: center">'+  
-      			'<h1 style="">Guaratinguetá</h1>'+
-				'<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Bandeira_Guaratingueta_SaoPaulo_Brasil_2.svg/125px-Bandeira_Guaratingueta_SaoPaulo_Brasil_2.svg.png">'+
-			'</div>'
-  		);
-
-
-      	([
-		{id: 1,lat:-22.81229721,lng:-45.20818753, color: 'red'   , name: "Antônia Quirino"		, address: "Rua A, Guaratinguetá"},
-		{id: 2,lat:-22.82475334,lng:-45.19505379, color: 'red'   , name: "Bárbara Álvarez"		, address: "Rua B, Guaratinguetá"},
-		{id: 3,lat:-22.80458907,lng:-45.18068995, color: 'red'   , name: "Caio César"			, address: "Rua C, Guaratinguetá"},
-		{id: 4,lat:-22.80337842,lng:-45.19436132, color: 'red'   , name: "Domingos Araújo"		, address: "Rua D, Guaratinguetá"},
-		{id: 5,lat:-22.81879289,lng:-45.20800073, color: 'red'   , name: "Donata Bicudo"		, address: "Rua E, Guaratinguetá"},
-		{id: 6,lat:-22.82095194,lng:-45.19557528, color: 'red'   , name: "Felícia Coello"		, address: "Rua F, Guaratinguetá"},
-		{id: 7,lat:-22.79395431,lng:-45.18964203, color: 'red'   , name: "Flora Leite"			, address: "Rua G, Guaratinguetá"},
-		{id: 8,lat:-22.79736162,lng:-45.18597528, color: 'red'   , name: "Inaiá Caminha"		, address: "Rua H, Guaratinguetá"},
-		{id: 9,lat:-22.81738825,lng:-45.20344573, color: 'red'   , name: "Jeremias Souto Maior"	, address: "Rua I, Guaratinguetá"},
-		{id:10,lat:-22.8145951 ,lng:-45.2040942 , color: 'red'   , name: "Lara Covilhã"			, address: "Rua J, Guaratinguetá"},
-		{id:11,lat:-22.813878  ,lng:-45.19456829, color: 'yellow', name: "Manuela Barrios"		, address: "Rua K, Guaratinguetá"},
-		{id:12,lat:-22.80933685,lng:-45.20175266, color: 'yellow', name: "Noel Veloso"			, address: "Rua L, Guaratinguetá"},
-		{id:13,lat:-22.81857607,lng:-45.19735738, color: 'yellow', name: "Noémia Bugalho"		, address: "Rua M, Guaratinguetá"},
-		{id:14,lat:-22.79845418,lng:-45.18203435, color: 'yellow', name: "Ondina Duarte"		, address: "Rua N, Guaratinguetá"},
-		{id:15,lat:-22.80824874,lng:-45.20653159, color: 'yellow', name: "Roberto Cisneiros"	, address: "Rua O, Guaratinguetá"},
-		{id:16,lat:-22.80305207,lng:-45.18350962, color: 'yellow', name: "Tomás Cysneiros"		, address: "Rua P, Guaratinguetá"},
-		{id:17,lat:-22.81513172,lng:-45.2025925 , color: 'yellow', name: "Trajano Carballo"		, address: "Rua Q, Guaratinguetá"},
-		{id:18,lat:-22.81904144,lng:-45.20115135, color: 'yellow', name: "Tânia Carvalhoso"		, address: "Rua R, Guaratinguetá"},
-		{id:19,lat:-22.8103327 ,lng:-45.18061669, color: 'yellow', name: "Vanessa Zagallo"		, address: "Rua S, Guaratinguetá"},
-		{id:20,lat:-22.80165717,lng:-45.20064915, color: 'yellow', name: "Vasco Lima"			, address: "Rua T, Guaratinguetá"}
-		]).forEach(function(point, index){
-			setTimeout(function(){
-				var icon = 'man-' + point.color + '.png';//'http://maps.google.com/intl/en_us/mapfiles/ms/micons/man.png';
-				var infoHtml = Plugins.Map.Marker.Templates.person(point);
-				Plugins.Map.Marker.add(point, infoHtml, icon);
-			}, 50 * index);
-		})
-
-      }
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-        async defer></script>
   </body>
 </html>
